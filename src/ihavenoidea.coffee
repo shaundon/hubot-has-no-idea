@@ -18,7 +18,8 @@
 
 module.exports = (robot) ->
   robot.hear regex, (msg) ->
-    msg.send msg.random images
+    robot.emit 'rate-limit', 'no-idea', 0, () ->
+      msg.send msg.random images
 
 images = require './data/images.json'
 
